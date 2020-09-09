@@ -1,8 +1,9 @@
 name: MT7620
 
 on: 
-  release:
-    types: [published]
+ push:
+    branches: 
+      - master
 #  push:
 #    tags:
 #    - 'v*'
@@ -100,8 +101,8 @@ jobs:
         sudo ./build_firmware_modify $m 0
         sudo mv -f images/*.trx /opt/images/
         done
-    - name: Upload binaries to release
+    - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware
+        name: MT7620
         path: /opt/images/

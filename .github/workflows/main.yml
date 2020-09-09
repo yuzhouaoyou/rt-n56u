@@ -103,8 +103,5 @@ jobs:
     - name: Upload binaries to release
       uses: actions/upload-artifact@master
       with:
-        repo_token: ${{ secrets.R_TOKEN }}
-        file: /opt/images/*.trx
-        tag: AtuoBuild
-        overwrite: true
-        file_glob: true
+        name: OpenWrt firmware
+        path: /opt/images/
